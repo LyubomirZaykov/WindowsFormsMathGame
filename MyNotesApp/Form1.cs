@@ -1,7 +1,12 @@
+
+using System.Drawing.Text;
+using System.Media;
+
 namespace MyNotesApp
 {
     public partial class Form1 : Form
     {
+        
         //Create random object call randomizer to
         //generate random numbers.
         Random randomizer=new Random();
@@ -26,8 +31,11 @@ namespace MyNotesApp
         int divisor;
 
         public int timeLeft;
-
-        public void StartTheQuiz()
+        private bool isAdditionTrue;
+        private bool isSubstractionTrue;
+        private bool isMultiplicationTrue;
+        private bool isDivisionTrue;
+        private void StartTheQuiz()
         {
         //Fill the addition problem
         //Generate two random numbers to add
@@ -97,10 +105,15 @@ namespace MyNotesApp
         }
         private bool CheckTheAnswer()
         {
-            if ((addend1+addend2==sum.Value)
-                &&(minuend-substrahend==difference.Value)
-                &&(multiplicand*multiplier==product.Value)
-                &&(dividend/divisor==quotient.Value))
+            isAdditionTrue = addend1 + addend2 == sum.Value;
+            isSubstractionTrue = minuend - substrahend == difference.Value;
+            isMultiplicationTrue = multiplicand * multiplier == product.Value;
+            isDivisionTrue = dividend / divisor == quotient.Value;
+            
+            if (isAdditionTrue
+                &&isSubstractionTrue
+                &&isMultiplicationTrue
+                &&isDivisionTrue)
             {
                 return true;
             }
@@ -109,7 +122,7 @@ namespace MyNotesApp
                 return false;
             }
         }
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -136,18 +149,29 @@ namespace MyNotesApp
             if (CheckTheAnswer())
             {
                 timer1.Stop();
+                timeLabel.BackColor = Color.White;
                 MessageBox.Show("You got all the answers right!",
                     "Congratulations!");
                 startButton.Enabled = true;
             }
             else if(timeLeft>0)
             {
+                
                 timeLeft = timeLeft - 1;
+                if (timeLeft<6)
+                {
+                    timeLabel.BackColor = Color.Red;
+                    SystemSounds.Beep.Play();
+                }
                 timeLabel.Text = timeLeft + "seconds";
             }
             else
             {
                 timer1.Stop();
+                SystemSounds.Beep.Play();
+                SystemSounds.Beep.Play();
+                SystemSounds.Beep.Play();
+                timeLabel.BackColor = Color.White;
                 timeLabel.Text = "Time's up!";
                 MessageBox.Show("You didn't finish in time.",
                     "Sorry!");
@@ -162,7 +186,57 @@ namespace MyNotesApp
 
         private void timeLabel_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        private void answer_Enter(object sender, EventArgs e)
+        {
+            NumericUpDown answerBox = sender as NumericUpDown;
+            if (answerBox!=null)
+            {
+                int lengthOfAnswer = answerBox.Value.ToString().Length;
+                answerBox.Select(0,lengthOfAnswer);
+            }
+        }
+
+        private void sum_ValueChanged(object sender, EventArgs e)
+        {
+            CheckTheAnswer();
+            if (isAdditionTrue)
+            {
+                PlayCorrectAnswerSound();
+            }
+        }
+
+        private void difference_ValueChanged(object sender, EventArgs e)
+        {
+            CheckTheAnswer();
+            if (isSubstractionTrue)
+            {
+                PlayCorrectAnswerSound();
+            }
+        }
+
+        private void product_ValueChanged(object sender, EventArgs e)
+        {
+            CheckTheAnswer();
+            if (isMultiplicationTrue)
+            {
+                PlayCorrectAnswerSound();
+            }
+        }
+
+        private void quotient_ValueChanged(object sender, EventArgs e)
+        {
+            CheckTheAnswer();
+            if (isDivisionTrue)
+            {
+                PlayCorrectAnswerSound();
+            }
+        }
+        private void PlayCorrectAnswerSound()
+        {
+            SystemSounds.Hand.Play();
         }
     }
 }
