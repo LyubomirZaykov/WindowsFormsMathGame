@@ -1,4 +1,4 @@
-namespace MyNotesApp
+namespace WindowsFormsMathGame
 {
     internal static class Program
     {

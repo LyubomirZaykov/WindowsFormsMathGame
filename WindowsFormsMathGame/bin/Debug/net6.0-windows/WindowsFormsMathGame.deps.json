@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "WindowsFormsMathGame/1.0.0": {
+        "runtime": {
+          "WindowsFormsMathGame.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WindowsFormsMathGame/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

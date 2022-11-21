@@ -1,0 +1,5 @@
+C:\Users\User\Source\Repos\LyubomirZaykov\MyNotesApp\MyNotesApp\bin\Release\net6.0-windows\publish\WindowsFormsMathGame.exe
+C:\Users\User\Source\Repos\LyubomirZaykov\MyNotesApp\MyNotesApp\bin\Release\net6.0-windows\publish\WindowsFormsMathGame.dll
+C:\Users\User\Source\Repos\LyubomirZaykov\MyNotesApp\MyNotesApp\bin\Release\net6.0-windows\publish\WindowsFormsMathGame.deps.json
+C:\Users\User\Source\Repos\LyubomirZaykov\MyNotesApp\MyNotesApp\bin\Release\net6.0-windows\publish\WindowsFormsMathGame.runtimeconfig.json
+C:\Users\User\Source\Repos\LyubomirZaykov\MyNotesApp\MyNotesApp\bin\Release\net6.0-windows\publish\WindowsFormsMathGame.pdb

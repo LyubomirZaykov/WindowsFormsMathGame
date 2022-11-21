@@ -2,7 +2,7 @@
 using System.Drawing.Text;
 using System.Media;
 
-namespace MyNotesApp
+namespace WindowsFormsMathGame
 {
     public partial class Form1 : Form
     {
