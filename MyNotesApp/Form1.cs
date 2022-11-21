@@ -56,12 +56,12 @@ namespace MyNotesApp
         //Generate two random numbers to substract, by making sure
         //that first is bigger than second, so that the difference
         //is positive number
-        minuend=randomizer.Next(0,100);
-        substrahend=randomizer.Next(0,minuend);
+        minuend=randomizer.Next(1,100);
+        substrahend = randomizer.Next(1, minuend);
         //Convert the two randomly generated numbers into strings 
         //so that they can be displayed in the label controls.
         minusLeftLabel.Text = minuend.ToString();
-        minusRightLabel.Text=substrahend.ToString();
+        minusRightLabel.Text = substrahend.ToString();
         //'difference' is the number of the NumericUpDown control.
         //This step makes sure its value is zero before 
         //adding any values to it.
@@ -70,8 +70,8 @@ namespace MyNotesApp
         //Fill the multiplication problem
         //Generate two random numbers to multiply, by making sure
         //that the product cannot be bigger than 100
-        multiplier = randomizer.Next(11);
-        multiplicand = randomizer.Next(11);
+        multiplier = randomizer.Next(1,10);
+        multiplicand = randomizer.Next(1,10);
         //Convert the two randomly generated numbers into strings
         //so that they can be displayed in the label controls
         timesLeftLabel.Text = multiplier.ToString();
